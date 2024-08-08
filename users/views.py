@@ -10,11 +10,12 @@ from .forms import UserForm
 
 @login_required
 def users(request):
-    # return render(request, 'index.html')
     users = User.objects.all().values()
+    user_count = User.objects.count()
     template = loader.get_template('index.html')
     context = {
         'users': users,
+        'user_count': user_count,
     }
     return HttpResponse(template.render(context, request))
     
@@ -62,3 +63,8 @@ def add_student(request):
             form = UserForm
         
     return render(request, 'add_student.html', {'form': form})
+
+
+    
+    
+
