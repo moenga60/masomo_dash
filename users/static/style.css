@@ -333,11 +333,11 @@ a {
     border-radius: 50%;
     color: #000;
 }
-.doctors--cards {
+.staffs--cards {
     display: flex;
     gap: 20px;
 }
-.doctor--card {
+.staff--card {
     padding: 20px;
     border-radius: 20px;
     height: auto;
@@ -348,7 +348,7 @@ a {
     align-items: center;
     font-size: .8rem;
 }
-.doctor--card:hover {
+.staff--card:hover {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 .img--box--cover {
