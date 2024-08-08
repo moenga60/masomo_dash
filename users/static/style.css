@@ -223,7 +223,7 @@ a {
 }
 .cards {
     display: flex;
-    gap: 20px;
+    gap: 30px;
 }
 .card {
     padding: 20px;
