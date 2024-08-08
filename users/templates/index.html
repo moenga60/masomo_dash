@@ -267,7 +267,7 @@
             <div class="recent--patients">
                 <div class="title">
                     <h2 class="section--title">Student List</h2>
-                    <button class="add"><i class="ri-add-line"></i>Add Student</button>
+                    <button class="add"><i class="ri-add-line"></i><a href="{% url 'add_student' %}" style="color: white;">Add Student</a></button>
                 </div>
                 <div class="table">
                     <table>
@@ -275,61 +275,32 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Registration number</th>
-                                <th>Gender</th>
-                                <th>Course</th>
-                                <th>Year</th>
+                                <th>Email</th>
+                                <th>Phone number</th>
+                                <th>DOB</th>
+                                <th>YOA</th>
+                                <th>Graduation</th>
+                                <th>city</th>
+                                <th>Picture</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
                         <tbody>
+                            {% for x in users %}
+
                             <tr>
-                                <td>Brian Nyairo</td>
-                                <td>asaksjjd</td>
-                                <td>Male</td>
-                                <td>Bsc civil eng</td>
-                                <td>3rd</td>
-                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
+                                <td>{{ x.first_name }} {{ x.last_name }}</td>
+                                <td>{{ x.registration_number }}</td>
+                                <td>{{ x.email }}</td>
+                                <td>{{ x.phone_number }}</td>
+                                <td>{{ x.date_of_birth }}</td>
+                                <td>{{ x.enrollment_date }}</td>
+                                <td>{{ x.graduation_year }}</td>
+                                <td>{{ x.city }}</td>
+                                <td>{{ x.profile_picture }}</td>
+                                <td><span><i class="ri-edit-line edit" style="cursor: pointer;"></i><i class="ri-delete-bin-line delete" style="cursor: pointer;"></i></span></td>
                             </tr>
-                            <tr>
-                                <td>Cameron Williamson</td>
-                                <td>1234567</td>
-                                <td>Male</td>
-                                <td>Bsc software eng</td>
-                                <td>3rd</td>
-                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Cameron Williamson</td>
-                                <td>1234567</td>
-                                <td>Male</td>
-                                <td>Bsc software eng</td>
-                                <td>3rd</td>
-                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Cameron Williamson</td>
-                                <td>1234567</td>
-                                <td>Male</td>
-                                <td>Bsc software eng</td>
-                                <td>3rd</td>
-                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Cameron Williamson</td>
-                                <td>1234567</td>
-                                <td>Male</td>
-                                <td>Bsc software eng</td>
-                                <td>3rd</td>
-                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
-                            <tr>
-                                <td>Cameron Williamson</td>
-                                <td>1234567</td>
-                                <td>Male</td>
-                                <td>Bsc software eng</td>
-                                <td>3rd</td>
-                                <td><span><i class="ri-edit-line edit"></i><i class="ri-delete-bin-line delete"></i></span></td>
-                            </tr>
+                            {% endfor %}
                             
                         </tbody>
                     </table>
