@@ -1,16 +1,50 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Register</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'register.css' %}">
+    <title>Sign up</title>
 </head>
 <body>
-    <h2>Register</h2>
+    <div class="background">
+        <div class="shape"></div>
+        <div class="shape"></div>
+
+    </div>
+   
     <form method="post">
+        <h3>Sign Up</h3>
+
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
+
+        <label for="username">Username:</label>
+        <input type="text" placeholder="Email or username" name="username" id="username" required>
+
+        <label for="email">Email:</label>
+        <input type="email" placeholder="email" name="email" id="email" required>
+
+        <label for="password1">Password:</label>
+        <input type="password" placeholder="Password" name="password1" id="password1" required>
+
+        <label for="password2">Confirm Password:</label>
+        <input type="password" placeholder="Confirm Password" name="password2" id="password2" required>
+
+        <button type="submit">Sign Up</button>
+
+        
+        <p>Already have an account?<a href="{% url 'login' %}" style="color: #23a2f6;">  Login Here</a></p>
+
+        <div class="social">
+            <div class="go"><i class="fab fa-google"></i> Google</div>
+            <div class="fb"><i class="fab fa-facebook"></i> Facebook</div>
+        </div>
+      
     </form>
-    <p>Already have an account?</p>
-    <a href="{% url 'login' %}">Login Here</a>
+    
 </body>
 </html>
+
