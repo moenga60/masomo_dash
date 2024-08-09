@@ -58,13 +58,14 @@ def add_student(request):
         form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
-            return redirect('users')
+            return redirect('success')
     else:
             form = UserForm()
         
     return render(request, 'add_student.html', {'form': form})
 
 
-    
+def success(request):
+    return render(request, 'success.html')
     
 
