@@ -55,12 +55,12 @@ def profile_view(request):
 
 def add_student(request):
     if request.method == 'POST':
-        form = UserForm(request.POST)
+        form = UserForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('users')
     else:
-            form = UserForm
+            form = UserForm()
         
     return render(request, 'add_student.html', {'form': form})
 
