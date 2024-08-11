@@ -20,5 +20,16 @@ class User(models.Model):
         
 
     
-    
+class Staff(models.Model):
+    id_number = models.CharField(max_length=10, unique=True)
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    role = models.CharField(max_length=30)
+    email = models.EmailField(unique=True)
+    department = models.CharField(max_length=50)
+    phone_number = models.IntegerField()
+    profile_picture = models.ImageField(upload_to='profile_pictures/', blank=True, null=True)  
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"  
     

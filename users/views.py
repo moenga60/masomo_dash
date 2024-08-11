@@ -1,21 +1,25 @@
 from django.http import HttpResponse
 from django.template import loader
-from django.shortcuts import render, redirect
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import User
-from .forms import UserForm
+from .models import User, Staff
+from .forms import UserForm, StaffForm
+from django.contrib.auth.views import LoginView
+
 
 @login_required
 def users(request):
     users = User.objects.all().values()
     user_count = User.objects.count()
+    staff = Staff.objects.all()
     template = loader.get_template('index.html')
     context = {
         'users': users,
         'user_count': user_count,
+        'staff': staff,
     }
     return HttpResponse(template.render(context, request))
     
@@ -53,6 +57,7 @@ def register_view(request):
 def profile_view(request):
     return render(request, 'profile.html')
 
+@login_required
 def add_student(request):
     if request.method == 'POST':
         form = UserForm(request.POST, request.FILES)
@@ -67,5 +72,23 @@ def add_student(request):
 
 def success(request):
     return render(request, 'success.html')
+
+# staff
+@login_required
+def add_staff(request):
+    if request.method == 'POST':
+        form = StaffForm(request.POST, {request.FILES})
+        if form.is_valid():
+            form.save()
+            return redirect('users')
     
+    else:
+        form = StaffForm()
+
+    return render(request, 'add_staff.html', {'form': form})
+
+
+    
+
+
 

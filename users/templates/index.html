@@ -202,19 +202,23 @@
                             <option value="free">Free</option>
                             <option value="scheduled">Scheduled</option>
                         </select> -->
-                        <button class="add"><i class="ri-add-line"></i>Add Staff</button>
+                        <button class="add"><i class="ri-add-line"></i><a href="{% url 'add_staff' %}" style="color: white;">Add Staff</a></button>
                     </div>
                 </div>
                 <div class="staffs--cards">
+                    {% for x in staff %}
                     <a href="#" class="staff--card">
+                        <p>Name: {{ x.first_name }} {{ x.last_name }}</p><br>
+                        <p>Dep: {{ x.department }}
                         <div class="img--box--cover">
                             <div class="img--box">
                                 <img src="{% static '' %}" alt="">
                             </div>
                         </div>
-                        <p class="free">ViceChancellor</p>
+                        <p class="free">{{ x.role }}</p>
                     </a>
-                    <a href="#" class="staff--card">
+                    {% endfor %}
+                    <!-- <a href="#" class="staff--card">
                         <div class="img--box--cover">
                             <div class="img--box">
                                 <img src="{% static '' %}" alt="">
@@ -261,7 +265,7 @@
                             </div>
                         </div>
                         <p class="scheduled">Proff</p>
-                    </a>
+                    </a> -->
                 </div>
             </div>
             <div class="recent--patients">
@@ -286,19 +290,22 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for x in users %}
+                            {% for user in users %}
 
                             <tr>
-                                <td>{{ x.first_name }} {{ x.last_name }}</td>
-                                <td>{{ x.registration_number }}</td>
-                                <td>{{ x.email }}</td>
-                                <td>{{ x.phone_number }}</td>
-                                <td>{{ x.date_of_birth }}</td>
-                                <td>{{ x.enrollment_date }}</td>
-                                <td>{{ x.graduation_year }}</td>
-                                <td>{{ x.city }}</td>
-                                <td>{{ x.profile_picture }}</td>
-                                <td><span><i class="ri-edit-line edit" style="cursor: pointer;"></i><i class="ri-delete-bin-line delete" style="cursor: pointer;"></i></span></td>
+                                <td>{{ user.first_name }} {{ user.last_name }}</td>
+                                <td>{{ user.registration_number }}</td>
+                                <td>{{ user.email }}</td>
+                                <td>{{ user.phone_number }}</td>
+                                <td>{{ user.date_of_birth }}</td>
+                                <td>{{ user.enrollment_date }}</td>
+                                <td>{{ user.graduation_year }}</td>
+                                <td>{{ user.city }}</td>
+                                <td>{{ user.profile_picture }}</td>
+                                <td><span>
+                                        <i class="ri-edit-line edit" style="cursor: pointer;"></i></a>
+                                    <i class="ri-delete-bin-line delete" style="cursor: pointer;"></i>
+                                </span></td>
                             </tr>
                             {% endfor %}
                             

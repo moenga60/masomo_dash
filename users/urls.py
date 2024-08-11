@@ -3,6 +3,7 @@ from django.conf.urls.static import static
 from django.urls import path
 from . import views
 
+
 urlpatterns = [
     path('accounts/login/', views.login_view, name='login'),
     path('accounts/logout/', views.logout_view, name='logout'),
@@ -11,6 +12,7 @@ urlpatterns = [
     path('', views.users, name='users'),
     path('add-student/', views.add_student, name='add_student'),
     path('success/', views.success, name='success'),
-    # path('students/', views.student_list, name='student_list'),
+    path('add-staff/', views.add_staff, name='add_staff'),
+    
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

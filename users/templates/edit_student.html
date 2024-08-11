@@ -1,0 +1,13 @@
+{% for user in users %}
+    <form method="post">
+        {% csrf_token %}
+
+        <input type="hidden" name="registration_number" value="{{ user.registration_number }}"
+        <input type="submit" value="Edit">
+
+        
+
+        <!-- {{ form.as_p }}
+        <button type="submit">Save changes</button> -->
+    </form>
+{% endfor %}
