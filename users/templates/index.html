@@ -208,14 +208,16 @@
                 <div class="staffs--cards">
                     {% for x in staff %}
                     <a href="#" class="staff--card">
-                        <p>Name: {{ x.first_name }} {{ x.last_name }}</p><br>
-                        <p>Dep: {{ x.department }}
+                        <p><b>Name: </b>{{ x.first_name }} {{ x.last_name }}</p><br>
+                        <p><b>Dep: </b>{{ x.department }} </p><br>
+                        <p><b>Email: </b>{{ x.email }} </p><br>
+                        <p><b>Phone: </b>{{ x.phone_number }} </p>
                         <div class="img--box--cover">
                             <div class="img--box">
                                 <img src="{% static '' %}" alt="">
                             </div>
                         </div>
-                        <p class="free">{{ x.role }}</p>
+                        <p class="scheduled"><b>{{ x.role }}</b></p>
                     </a>
                     {% endfor %}
                     <!-- <a href="#" class="staff--card">

@@ -77,7 +77,7 @@ def success(request):
 @login_required
 def add_staff(request):
     if request.method == 'POST':
-        form = StaffForm(request.POST, {request.FILES})
+        form = StaffForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('users')

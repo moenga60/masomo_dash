@@ -410,7 +410,7 @@ th {
 /* responsive starts here */
 @media screen and (max-width:1350px) {
     .cards,
-    .doctors--cards {
+    .staffs--cards {
         overflow-x: scroll;
     }
 }
@@ -470,6 +470,9 @@ th {
     }
     .main--content.active {
         width: calc(100% - 0px);
+    }
+    .staffs--cards {
+        overflow: scroll;
     }
 }
 @media screen and (max-width:450px) {
