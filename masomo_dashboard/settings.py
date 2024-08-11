@@ -31,6 +31,7 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -104,10 +105,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'users.backends.EmailOrUsernameBackend',
-]
+
 
 # AUTH_USER_MODEL = 'users.CustomUser'
 
@@ -151,3 +149,21 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # CORS_ORIGIN_WHITELIST =(
 #     'http://localhost:3000',
 # )
+
+JAZZMIN_SETTINGS = {
+    "site_title": "My Django Admin",
+    "site_header": "My Admin",
+    "welcome_sign": "Welcome to masomo admin",
+    "show_sidebar": True,
+    "navigation_expanded": True,
+    "icons": {
+        "auth": "fas fa-users-cog",
+        "auth.user": "fas fa-user",
+        "auth.Group": "fas fa-users",
+    },
+
+    "related_modal_active": False,
+    "custom_css": None,
+    "custome_js": None,
+    "use_google_fonts_cdn": True,
+}
