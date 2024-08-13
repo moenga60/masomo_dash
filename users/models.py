@@ -2,7 +2,7 @@ from django.db import models
 # from django.contrib.auth.models import AbstractUser
 
 class User(models.Model):
-    registration_number = models.CharField(max_length=30)
+    registration_number = models.CharField(max_length=30, unique=True)
     first_name = models.CharField(max_length=255)
     last_name = models.CharField(max_length=255)
     email = models.EmailField(unique=True)
@@ -33,3 +33,13 @@ class Staff(models.Model):
     def __str__(self):
         return f"{self.first_name} {self.last_name}"  
     
+
+class Fees(models.Model):
+    student = models.ForeignKey(User, on_delete=models.CASCADE, related_name='fees')
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+    due_date = models.DateField()
+    paid_date = models.DateField(blank=True, null=True)
+    is_paid = models.BooleanField(default=False)
+
+    def __str__(self):
+        return f"{self.student} - {self.amount}"

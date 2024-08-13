@@ -12,20 +12,7 @@
 
 <body>
 
-    <!-- <h2>Welcome to the Index Page</h2>
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% if user.is_authenticated %}
-        <p>Welcome, {{ user.username }} </p>
-        <a href="{% url 'logout' %}">Logout</a>
-    {% else %}
-        <a href="{% url 'login' %}">Login</a>
-    {% endif %} -->
+  
 
     <section class="header">
         <div class="logo">
@@ -47,13 +34,7 @@
                 <div class="picon profile"><a href="#updateprofile"></a>
                     <img src="{% static 'pp.jpg' %}" alt="pp">
                 </div>
-                <!-- <select name="date" id="date" class="dropdown">
-                    <option value="today">Profile</option>
-                    <option value="lastweek">Last Week</option>
-                    <option value="lastmonth">Last Month</option>
-                    <option value="lastyear">Last Year</option>
-                    <option value="alltime">All Time</option>
-                </select> -->
+                
             </div>
         </div>
     </section>
@@ -126,13 +107,7 @@
                     
                     <h2 class="section--title">Welcome, <b>{{ user.username }}❤️!</b></h2>
                 {% endif %}
-                    <!-- <select name="date" id="date" class="dropdown">
-                        <option value="today">Today</option>
-                        <option value="lastweek">Last Week</option>
-                        <option value="lastmonth">Last Month</option>
-                        <option value="lastyear">Last Year</option>
-                        <option value="alltime">All Time</option>
-                    </select> -->
+                    
                 </div><br>
                 <div class="cards">
                     <div class="card card-1">
@@ -143,11 +118,7 @@
                             </div>
                             <i class="ri-wallet-3-line card--icon--lg"></i>
                         </div>
-                        <!-- <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>65%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>10</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>2</span>
-                        </div> -->
+                        
                     </div>
                     <div class="card card-2">
                         <div class="card--data">
@@ -157,11 +128,7 @@
                             </div>
                             <i class="ri-user-line card--icon--lg"></i>
                         </div>
-                        <!-- <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>82%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>230</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>45</span>
-                        </div> -->
+                        
                     </div>
                     <div class="card card-3">
                         <div class="card--data">
@@ -171,11 +138,7 @@
                             </div>
                             <i class="ri-notification-line card--icon--lg"></i>
                         </div>
-                        <!-- <div class="card--stats">
-                            <span><i class="ri-bar-chart-fill card--icon stat--icon"></i>27%</span>
-                            <span><i class="ri-arrow-up-s-fill card--icon up--arrow"></i>31</span>
-                            <span><i class="ri-arrow-down-s-fill card--icon down--arrow"></i>23</span>
-                        </div> -->
+                        
                     </div>
                     <div class="card card-4">
                         <div class="card--data">
@@ -197,11 +160,7 @@
                 <div class="title">
                     <h2 class="section--title">Staff</h2>
                     <div class="doctors--right--btns">
-                        <!-- <select name="date" id="date" class="dropdown doctor--filter">
-                            <option >Filter</option>
-                            <option value="free">Free</option>
-                            <option value="scheduled">Scheduled</option>
-                        </select> -->
+                        
                         <button class="add"><i class="ri-add-line"></i><a href="{% url 'add_staff' %}" style="color: white;">Add Staff</a></button>
                     </div>
                 </div>
@@ -209,65 +168,18 @@
                     {% for x in staff %}
                     <a href="#" class="staff--card">
                         <p><b>Name: </b>{{ x.first_name }} {{ x.last_name }}</p><br>
-                        <p><b>Dep: </b>{{ x.department }} </p><br>
+                        <p><b>Department: </b>{{ x.department }} </p><br>
                         <p><b>Email: </b>{{ x.email }} </p><br>
                         <p><b>Phone: </b>{{ x.phone_number }} </p>
                         <div class="img--box--cover">
                             <div class="img--box">
-                                <img src="{% static '' %}" alt="">
+                                <img src="http://127.0.0.1:8000/media/{{x.profile_picture }}" alt="{{ x.first_name }}">
                             </div>
                         </div>
                         <p class="scheduled"><b>{{ x.role }}</b></p>
                     </a>
                     {% endfor %}
-                    <!-- <a href="#" class="staff--card">
-                        <div class="img--box--cover">
-                            <div class="img--box">
-                                <img src="{% static '' %}" alt="">
-                            </div>
-                        </div>
-                        <p class="scheduled">DVC</p>
-                    </a>
-                    <a href="#" class="staff--card">
-                        <div class="img--box--cover">
-                            <div class="img--box">
-                                <img src="{% static '' %}" alt="">
-                            </div>
-                        </div>
-                        <p class="scheduled">Registrar</p>
-                    </a>
-                    <a href="#" class="staff--card">
-                        <div class="img--box--cover">
-                            <div class="img--box">
-                                <img src="{% static '' %}" alt="">
-                            </div>
-                        </div>
-                        <p class="free">D/Registrar</p>
-                    </a>
-                    <a href="#" class="staff--card">
-                        <div class="img--box--cover">
-                            <div class="img--box">
-                                <img src="{% static '' %}" alt="">
-                            </div>
-                        </div>
-                        <p class="scheduled">Lecturer</p>
-                    </a>
-                    <a href="#" class="staff--card">
-                        <div class="img--box--cover">
-                            <div class="img--box">
-                                <img src="{% static '' %}" alt="">
-                            </div>
-                        </div>
-                        <p class="free">Lecturer</p>
-                    </a>
-                    <a href="#" class="staff--card">
-                        <div class="img--box--cover">
-                            <div class="img--box">
-                                <img src="{% static '' %}" alt="">
-                            </div>
-                        </div>
-                        <p class="scheduled">Proff</p>
-                    </a> -->
+                   
                 </div>
             </div>
             <div class="recent--patients">

@@ -15,6 +15,8 @@ def users(request):
     users = User.objects.all().values()
     user_count = User.objects.count()
     staff = Staff.objects.all()
+    for x in staff:
+        print(x.profile_picture)
     template = loader.get_template('index.html')
     context = {
         'users': users,
@@ -77,7 +79,7 @@ def success(request):
 @login_required
 def add_staff(request):
     if request.method == 'POST':
-        form = StaffForm(request.POST)
+        form = StaffForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('users')
