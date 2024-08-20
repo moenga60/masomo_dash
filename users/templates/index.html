@@ -48,7 +48,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{% url 'fees_list' %}">
                         <span class="icon icon-2"><i class="ri-wallet-3-fill"></i></span>
                         <span class="sidebar--item">Fees</span>
                     </a>
@@ -199,7 +199,7 @@
                                 <th>YOA</th>
                                 <th>Graduation</th>
                                 <th>city</th>
-                                <th>Picture</th>
+                                <!-- <th>Picture</th> -->
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -215,7 +215,7 @@
                                 <td>{{ user.enrollment_date }}</td>
                                 <td>{{ user.graduation_year }}</td>
                                 <td>{{ user.city }}</td>
-                                <td>{{ user.profile_picture }}</td>
+                                <!-- <td>{{ user.profile_picture }}</td> -->
                                 <td><span>
                                         <i class="ri-edit-line edit" style="cursor: pointer;"></i></a>
                                     <i class="ri-delete-bin-line delete" style="cursor: pointer;"></i>

@@ -39,7 +39,7 @@ class Fees(models.Model):
     amount = models.DecimalField(max_digits=10, decimal_places=2)
     due_date = models.DateField()
     paid_date = models.DateField(blank=True, null=True)
-    is_paid = models.BooleanField(default=False)
+    status = models.CharField(max_length=20, choices=[('Paid', 'Paid'), ('Pending', 'Pending')])
 
     def __str__(self):
-        return f"{self.student} - {self.amount}"
+        return f"{self.amount} - {self.status}"

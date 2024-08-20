@@ -1,5 +1,5 @@
 from django import forms
-from .models import User, Staff
+from .models import User, Staff, Fees
 from django.contrib.auth.forms import AuthenticationForm
 
 class UserForm(forms.ModelForm):
@@ -12,3 +12,7 @@ class StaffForm(forms.ModelForm):
         model = Staff
         fields = ['id_number', 'first_name', 'last_name', 'role', 'email', 'department', 'phone_number', 'profile_picture']
 
+class FeeForm(forms.ModelForm):
+    class Meta:
+        model = Fees
+        fields = ['student', 'amount', 'due_date', 'paid_date', 'status']

@@ -5,8 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
-from .models import User, Staff
-from .forms import UserForm, StaffForm
+from .models import User, Staff, Fees
+from .forms import UserForm, StaffForm, FeeForm
 from django.contrib.auth.views import LoginView
 
 
@@ -89,7 +89,10 @@ def add_staff(request):
 
     return render(request, 'add_staff.html', {'form': form})
 
-
+@login_required
+def fees_list(request):
+    fees = Fees.objects.all()
+    return render(request, 'fees.html', {'fees': fees})
     
 
 
